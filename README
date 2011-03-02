@@ -1,0 +1,51 @@
+DESCRIPTION
+
+viral-landing-page is a web application to deploy a viral landing page, commonly
+used by web startups. It's licensed under the BSD license (see the LICENSE file),
+making it easily modifiable by anybody who wishes to extend the functionality.
+
+When a user submits their e-mail address, it will immediately be recorded to the
+local database. The user will then be shown "sharing" icons from Facebook and
+Twitter. Each successful click or referral will be recorded to the database for
+that user. This makes it easier for you to allow earlier access to people who are
+driving traffic to your site.
+
+CONFIGURATION
+
+You will want to change the application helpers, which are configurable to show
+the name of the site and the associated twitter ID. You can edit this information
+in:
+
+    * app/helpers/application_helper.rb
+
+Once you have changed the site name and twitter ID, you will want to install
+all of the required gems. This can be done by running:
+
+    $ bundle install
+
+I also recommend changing the default database, as it is configured to use
+sqlite3 out of the box. A real database system (MySQL, PostgreSQL, etc.) is
+recommended. As with any other Ruby on Rails application, you can modify the DB
+connector here:
+
+    * config/database.yml
+
+Please note that I did not include Gems for other databases, you will have to
+add them to Gemfile in the root of the application.
+
+Also of note is that this application has routes for both '/' as well as
+'/invites', which means that it will work on both. If this is not your planned
+implementation, you can edit the routes here:
+
+    * config/routes.rb
+
+ATTRIBUTION
+
+None is required, but if you want to be nice you can go ahead and let me know
+you are using this. You can contact me via the following methods:
+
+    * Blog:      http://alanp.ca/
+    * Twitter:   http://twitter.com/alanpca
+    * Email:     contact@alanp.ca
+
+Copyright (C) 2011 Alan P. Laudicina <contact@alanp.ca>
