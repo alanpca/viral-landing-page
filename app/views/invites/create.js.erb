@@ -15,9 +15,9 @@
     $("#jsontext").html('We will contact you as soon as access becomes available. You currently have <b><%= pluralize @invite.clicks, 'click' %></b> and <b><%= pluralize @invite.refer, 'referral' %></b>! Keep sharing by using the links below in order to gain earlier access!');
 
   <% end %>
-  $("#sharefb").html('<fb:share-button type="box_count" href="<%= @user_info['url'] %>" show_faces="false"></fb:share-button>');
+  $("#sharefb").html('<fb:share-button type="box_count" href="<%= @user_info['url'] %>" width="200" show_faces="false"></fb:share-button>');
   $("#sharetwit").html('<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="<%= twitter_id %>" data-url="<%= @user_info['url'] %>">Tweet</a>');
-  $("#sharelink").html('You can also share using the link below: <br /><input type="text" value="<%= @user_info['url'] %>" readonly>');
+  $("#sharelink").html('You can also share using the link below: <br /><input type="text" id="slink" name="slink" size="30" value="<%= @user_info['url'] %>" readonly onClick="select()">');
 
   <% # This is gross, but we can't just throw the facebook JS in the element %>
   var script = document.createElement('script');

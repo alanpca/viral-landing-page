@@ -1,4 +1,4 @@
-<h1>Sign up for early access now!</h1>
+<div id="signupnow">Sign up for early access now!</div>
 <%= form_tag "/invites", :remote => true, :id => "inviteform" do %>
   <% if !params[:id].nil? %>
     <%= hidden_field_tag :referrer, params[:id] %>
@@ -7,3 +7,4 @@
   <%= text_field_tag :email, nil, :placeholder => 'your@email.com' %>
   <%= submit_tag "Submit E-mail address", :disable_with => "Submitting...", :id => "submitbutton" %>
 <% end %>
+<div id="error"></div>

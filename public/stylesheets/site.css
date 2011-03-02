@@ -1,0 +1,90 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+ 
+body {
+  background: no-repeat gray;
+  font-family: Georgia, Times, serifs;
+}
+ 
+#floater {
+  position: relative;
+  float: left;
+  height: 50%;
+  margin-bottom: -200px;
+  width: 1px;
+}
+ 
+#centered {
+  position: relative;
+  clear: left;
+  height: 400px;
+  width: 80%;
+  max-width: 800px;
+  min-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  border: 4px solid #666;
+}
+ 
+#bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right:  20px;
+}
+ 
+#content {
+  position: absolute;
+  left: 30%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  height: 340px;
+  padding: 20px;
+  margin: 10px;
+}
+
+#oneliner {
+  font-size: 1.4em;
+  padding-bottom: 5px;
+}
+
+#description {
+  padding-bottom: 25px;
+}
+
+#signupnow {
+  font-size: 1.3em;
+  padding-bottom: 5px;
+}
+
+#sharelink {
+  padding-top: 1px;
+  text-align: center;
+}
+
+#sharefb {
+  display: inline;
+  text-align: left;
+}
+
+#sharetwit {
+  display: inline;
+  text-align: right;
+}
+
+#sharing {
+  width: 200px;
+}
+
+#header {
+  font-size: 1.3em;
+}
+
+#slink {
+  text-align: center;
+}

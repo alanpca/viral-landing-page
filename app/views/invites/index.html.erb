@@ -1,14 +1,29 @@
-<div id="emailform">
-<%= render 'form' %>
-<div id="error"></div>
-</div>
-<div id="header"></div>
-<div id="jsontext"></div>
-<div id="sharefb"></div>
-<div id="sharetwit"></div>
-<div id="sharelink"></div>
 
+  <div id="oneliner"><%= site_name %> is going to change the way you operate!</div>
+  <div id="description">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="emailform">
+  <%= render 'form' %>
+  </div>
+  
+  <div id="header"></div>
+  <div id="jsontext"></div>
 
+    <div align="center">
+      <div id="sharing">
+        <div id="sharefb"></div>
+        <div id="sharetwit"></div>
+      </div>
+        <div id="sharelink"></div>
+    </div>
+</div>  
+  
 <% # If they have already signed up before, just redirect them to stats %>
 <% if !session[:user_id].nil? %>
   <% invite = Invite.find(session[:user_id]) %>
