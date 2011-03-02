@@ -1,17 +1,29 @@
 <% if @invite.id.nil? %>
   $("#error").html('Please enter a valid e-mail address');
   $("#text").html('');
+
 <% else %>
   $("#emailform").html('');
   $("#error").html('');
+
   <% if @user_info['new'] %>
     $("#header").html('Thank you for signing up for early access!');
     $("#jsontext").html('We will contact you as soon as access becomes available. To get <b>earlier access</b>, share your referral link with your friends.');
+
   <% else %>
     $("#header").html('Thank you for coming back!');
     $("#jsontext").html('We will contact you as soon as access becomes available. You currently have <b><%= pluralize @invite.clicks, 'click' %></b> and <b><%= pluralize @invite.refer, 'referral' %></b>! Keep sharing by using the links below in order to gain earlier access!');
+
   <% end %>
-  $("#sharefb").html('<script type="text/javascript" src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></script><a name="fb_share" type="button" share_url="<%= @user_info['url'] %>">');
-  $("#sharetwit").html('<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="<%= twitter_id %>" data-url="<%= @user_info['url'] %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>');
+  $("#sharefb").html('<fb:share-button type="box_count" href="<%= @user_info['url'] %>" show_faces="false"></fb:share-button>');
+  $("#sharetwit").html('<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="<%= twitter_id %>" data-url="<%= @user_info['url'] %>">Tweet</a>');
   $("#sharelink").html('You can also share using the link below: <br /><input type="text" value="<%= @user_info['url'] %>" readonly>');
+
+  <% # This is gross, but we can't just throw the facebook JS in the element %>
+  var script = document.createElement('script');
+  script.type = "text/javascript";
+  script.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+  document.getElementsByTagName('head')[0].appendChild(script);
+  FB.XFBML.parse();
+
 <% end %>
