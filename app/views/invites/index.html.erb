@@ -1,0 +1,20 @@
+<div id="emailform">
+<%= render 'form' %>
+<div id="error"></div>
+</div>
+<div id="header"></div>
+<div id="jsontext"></div>
+<div id="sharefb"></div>
+<div id="sharetwit"></div>
+<div id="sharelink"></div>
+
+
+<% # If they have already signed up before, just redirect them to stats %>
+<% if !session[:user_id].nil? %>
+  <% invite = Invite.find(session[:user_id]) %>
+  <script type="text/javascript">
+    $("#email").val("<%= @invite.email %>");
+    $("#inviteform").submit();
+  </script>'
+<% end %>
+

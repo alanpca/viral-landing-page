@@ -1,0 +1,17 @@
+<% if @invite.id.nil? %>
+  $("#error").html('Please enter a valid e-mail address');
+  $("#text").html('');
+<% else %>
+  $("#emailform").html('');
+  $("#error").html('');
+  <% if @user_info['new'] %>
+    $("#header").html('Thank you for signing up for early access!');
+    $("#jsontext").html('We will contact you as soon as access becomes available. To get <b>earlier access</b>, share your referral link with your friends.');
+  <% else %>
+    $("#header").html('Thank you for coming back!');
+    $("#jsontext").html('We will contact you as soon as access becomes available. You currently have <b><%= pluralize @invite.clicks, 'click' %></b> and <b><%= pluralize @invite.refer, 'referral' %></b>! Keep sharing by using the links below in order to gain earlier access!');
+  <% end %>
+  $("#sharefb").html('<script type="text/javascript" src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></script><a name="fb_share" type="button" share_url="<%= @user_info['url'] %>">');
+  $("#sharetwit").html('<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="<%= twitter_id %>" data-url="<%= @user_info['url'] %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>');
+  $("#sharelink").html('You can also share using the link below: <br /><input type="text" value="<%= @user_info['url'] %>" readonly>');
+<% end %>
