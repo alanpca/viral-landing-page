@@ -33,6 +33,7 @@ class InvitesController < ApplicationController
       end
       @invite = Invite.new
       @invite.email = params[:email]
+      @invite.save
     end
 
     if !@invite.id.nil?
