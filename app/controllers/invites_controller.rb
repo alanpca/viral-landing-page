@@ -39,7 +39,7 @@ class InvitesController < ApplicationController
       # Set a cookie with the user's ID
       session[:user_id] = @invite.id
       # Set the URL to be shared
-      @user_info['url'] = "http://" + request.env["HTTP_HOST"] + "/" + @invite.id.to_s(36)
+      @user_info['url'] = (request.ssl? ? "https://" : "http://") + request.env["HTTP_HOST"] + "/" + @invite.id.to_s(36)
     end
 
   end
