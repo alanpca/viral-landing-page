@@ -1,14 +1,17 @@
 
   <div id="oneliner"><%= site_name %> is going to change the way you operate!</div>
   <div id="description">
-This text is meant to be changed. Here is how VLP works:<br />
-When a user submits their e-mail address, it will immediately be recorded to the
-local database. The user will then be shown "sharing" icons from Facebook and
-Twitter. Each successful click or referral will be recorded to the database for
-that user. This makes it easier for you to allow earlier access to people who are driving traffic to your site.
+    This text is meant to be changed. Here is how VLP works:<br />
+    When a user submits their e-mail address, it will immediately be recorded to the
+    local database. The user will then be shown "sharing" icons from Facebook and
+    Twitter. Each successful click or referral will be recorded to the database for
+    that user. This makes it easier for you to allow earlier access to people who are driving traffic to your site.
+    <br/><br/>
+    For a better description of what this software does, check out
+    <a href="http://alanp.ca/blog/2011/03/02/announcing-viral-landing-page/">this blog post</a>
+
   </div>
   <div id="emailform">
-  <b>NOTE: I will not use any address you submit for ANYTHING.</b>
   <%= render 'form' %>
   </div>
   
@@ -22,7 +25,6 @@ that user. This makes it easier for you to allow earlier access to people who ar
       </div>
         <div id="sharelink"></div>
     </div>
-</div>  
   
 <% # If they have already signed up before, just redirect them to stats %>
 <% if !session[:user_id].nil? %>
