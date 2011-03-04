@@ -2,6 +2,9 @@ class InvitesController < ApplicationController
   # GET /
   def index
     id = params[:id]
+    if !id.nil?
+      id = id.to_i(36)
+    end
     # Increment the number of clicks if it's not the user themselves
     if !id.nil? && (session[:user_id].nil? || id.to_i != session[:user_id].to_i)
       referrer = Invite.find(id)
