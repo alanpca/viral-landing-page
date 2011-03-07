@@ -27,7 +27,7 @@ class InvitesController < ApplicationController
       @user_info['new'] = true
       if !params[:referrer].nil? #check for referrer
         begin
-          referrer = Invite.find(params[:referrer])
+          referrer = Invite.find(params[:referrer].to_i(36))
           referrer.refer += 1
           referrer.save
         rescue
