@@ -30,19 +30,19 @@ class InvitesController < ApplicationController
     @invite = Invite.find_by_email(params[:email])
     @user_info['new'] = false
     if @invite.nil? # User doesn't already exist
+      @invite = Invite.new
+      @invite.email = params[:email]
+      @invite.save
       @user_info['new'] = true
       if !params[:referrer].nil? #check for referrer
         begin
           referrer = Invite.find(params[:referrer].to_i(36))
           referrer.refer += 1
+          referrer.referrals <<  Referral.new(:referral_id => @invite.id)
           referrer.save
         rescue
-          puts "Bad input"
         end
       end
-      @invite = Invite.new
-      @invite.email = params[:email]
-      @invite.save
     end
 
     if !@invite.id.nil?

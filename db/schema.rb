@@ -10,12 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228024822) do
+ActiveRecord::Schema.define(:version => 20110318040100) do
 
   create_table "invites", :force => true do |t|
     t.string   "email"
     t.integer  "refer",      :default => 0
     t.integer  "clicks",     :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "referrals", :force => true do |t|
+    t.integer  "invite_id"
+    t.integer  "referral_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
