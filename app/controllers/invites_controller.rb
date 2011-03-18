@@ -7,13 +7,19 @@ class InvitesController < ApplicationController
     end
     # Increment the number of clicks if it's not the user themselves
     if !id.nil? && (session[:user_id].nil? || id.to_i != session[:user_id].to_i)
-      referrer = Invite.find(id)
-      referrer.clicks += 1
-      referrer.save
+      begin
+        referrer = Invite.find(id)
+        referrer.clicks += 1
+        referrer.save
+      rescue
+      end
     end
     if !session[:user_id].nil?
       # If we have a cookie for the user, go ahead and set their instance
-      @invite = Invite.find(session[:user_id])
+      begin
+        @invite = Invite.find(session[:user_id])
+      rescue
+      end
     end
   end
 
