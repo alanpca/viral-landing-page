@@ -11,27 +11,16 @@
     <a href="http://alanp.ca/blog/2011/03/02/announcing-viral-landing-page/">this blog post</a>
 
   </div>
-  <div id="emailform">
-  <%= render 'form' %>
-  </div>
-  
-  <div id="header"></div>
-  <div id="jsontext"></div>
 
-    <div align="center">
-      <div id="sharing">
-        <div id="sharefb"></div>
-        <div id="sharetwit"></div>
-      </div>
-        <div id="sharelink"></div>
-    </div>
-  
+
+<%= render 'form' %>
+
 <% # If they have already signed up before, just redirect them to stats %>
 <% if !session[:user_id].nil? %>
   <% invite = Invite.find(session[:user_id]) %>
   <script type="text/javascript">
     $("#email").val("<%= @invite.email %>");
-    $("#inviteform").submit();
+    $("#emailform").submit();
   </script>
 <% end %>
 

@@ -1,0 +1,40 @@
+
+<% if @invite.id.nil? %>
+  <div id="error">Please enter a valid e-mail address</div>
+<% else %>
+
+  <% if @user_info['new'] %>
+    <div id="header">
+      Thank you for signing up for early access!
+    </div>
+    <div id="jsontext">
+      We will contact you as soon as access becomes available. To get <b>earlier
+      access</b>, share your referral link with your friends.
+    </div>
+  <% else %>
+    <div id="header">
+      Thank you for coming back!
+    </div>
+    <div id="jsontext">
+      We will contact you as soon as access becomes available. You currently have
+      <b><%= pluralize @invite.clicks, 'click' %></b> and <b>
+      <%= pluralize @invite.refer, 'referral' %></b>! Keep sharing by using the
+      links below in order to gain earlier access!
+    </div>
+  <% end %>
+
+  <div align="center">
+    <div id="sharing">
+      <div id="sharefb"><%= raw(fb_share(@user_info)) %></div>
+      <div id="sharetwit"><%= raw(twitter_share(@user_info)) %></div>
+    </div>
+      <div id="sharelink">
+        You can also share using the link below: <br />
+        <input type="text" id="slink" name="slink" size="30" value="<%= @user_info['url'] %>" readonly onClick="select()">
+      </div>
+  </div>
+  <script type="text/javascript">
+    <%= raw(fb_js) %>
+  </script>
+
+<% end %>

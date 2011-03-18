@@ -1,5 +1,5 @@
 <div id="signupnow">Sign up for early access now!</div>
-<%= form_tag "/invites", :remote => true, :id => "inviteform" do %>
+<%= form_tag "/invites", :remote => true, :id => "emailform" do %>
   <% if !params[:id].nil? %>
     <%= hidden_field_tag :referrer, params[:id] %>
   <% end %>
@@ -8,3 +8,13 @@
   <%= submit_tag "Submit E-mail address", :disable_with => "Submitting...", :id => "submitbutton" %>
 <% end %>
 <div id="error"></div>
+<div id="header"></div>
+<div id="jsontext"></div>
+
+<div align="center">
+  <div id="sharing">
+    <div id="sharefb"></div>
+    <div id="sharetwit"></div>
+  </div>
+    <div id="sharelink"></div>
+</div>
